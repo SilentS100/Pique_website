@@ -1,1 +1,58 @@
-testing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Width Content</title>
+  <style>
+	body {
+		background-color: rgb(162,162, 219);
+	}
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden; /* Hides horizontal scrollbar */
+    }
+   
+	.foreground{
+		width: 100vw;
+		position: absolute;
+		
+	}
+	.color-rectangle {
+      	width: 200vw; /* Adjust width as needed */
+      	height: 100vw; /* Adjust height as needed */
+    	background-color: rgb(47,54,153); /* Change color as needed */
+		
+    }
+  </style>
+</head>
+<body>
+	
+	<img src = "static/pique_text.png" class="foreground" speed = -1.1>
+  	<img src = "static/foreground_0.png" class="foreground" speed = -0.9  offset = 100.0>
+  	<img src = "static/foreground_1.png" class="foreground" speed = -0.6  offset = 150.0>
+  	<img src = "static/foreground_2.png" class="foreground" speed = -0.4  offset = 150.0> 
+  	<img src = "static/foreground_3.png" class="foreground" speed = -0.25 offset = 150.0> 
+	
+	<div class="color-rectangle foreground" speed = -.25 offset = 1450.0></div>
+	
+	  <script>
+		window.addEventListener('scroll', function() {
+		  const scrolled = window.scrollY;
+		  let counter = 0
+		  const parallaxSections = document.querySelectorAll('.foreground');
+		  console.log(parallaxSections.length)
+		  parallaxSections.forEach(section => {
+			const speed = section.getAttribute('speed');
+			const offset = section.getAttribute('offset');
+			let number = scrolled * speed - offset
+			section.style.top = -number + 'px';
+		  });
+		});
+	  </script>
+</body>
+</html>
