@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Width Content</title>
+  <title>Pique</title>
   <style>
 	body {
-		background-color: rgb(162,162, 219);
+		background-color: #a2a2db;
 	}
 
     body, html {
@@ -14,45 +14,188 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow-x: hidden; /* Hides horizontal scrollbar */
+	  overflow: hidden;
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+           -khtml-user-select: none; /* Konqueror HTML */
+             -moz-user-select: none; /* Old versions of Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+      
     }
    
 	.foreground{
 		width: 100vw;
 		position: absolute;
 		
+		transition: top 0.1s ease-out; /* Adjust the duration and timing function as needed */
+		
 	}
 	.color-rectangle {
       	width: 200vw; /* Adjust width as needed */
-      	height: 100vw; /* Adjust height as needed */
-    	background-color: rgb(47,54,153); /* Change color as needed */
-		
+      	height: 200vw; /* Adjust height as needed */
+    	background-color: #2d145a; /* Change color as needed */
+    }
+    .data-rectangle {
+        width: 45vw;
+        height: 13vw;
+        background-color: #a2a2db;
+        border-radius: 15px 50px;
+        
+    }	
+  
+    .data-text{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 400;
+        font-size: 2.5vw;
+        width: 45vw;
+        height: 15vw;
+        flex-wrap: wrap;
+        color: #2d145a;
+        text-align: center;
     }
   </style>
 </head>
 <body>
+  
+	<!-- <img src = "static/sun.svg" class="foreground" speed = -1.3> -->
+  	
+      <img src = "static/pique_text.svg"   class="foreground" speed = -.025 offset = 100.0 style="left: 10vh">
+    
+      <svg class="foreground" speed = .03 offset = 100.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <!-- Original SVG Image (as a mask) -->
+            <mask id="svgMask0" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+                <image width="1" height="1" href="static/foreground_0.svg" preserveAspectRatio="xMidYMid slice" />
+            </mask>
+
+            <!-- Gradient for the non-clear areas -->
+            <linearGradient id="gradient0" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#8774ff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#240c46;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Rectangle with the gradient applied to non-clear areas -->
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient0)" mask="url(#svgMask0)" fill-opacity="1"/>
+      </svg>
+
+      <svg class="foreground" speed = .08 offset = 200.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <!-- Original SVG Image (as a mask) -->
+            <mask id="svgMask1" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+                <image width="1" height="1" href="static/foreground_1.svg" preserveAspectRatio="xMidYMid slice" />
+            </mask>
+
+            <!-- Gradient for the non-clear areas -->
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#805df1;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#361367;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Rectangle with the gradient applied to non-clear areas -->
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient1)" mask="url(#svgMask1)" fill-opacity="1"/>
+      </svg>
+
+      <svg class="foreground" speed = .16 offset = 570.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <!-- Original SVG Image (as a mask) -->
+            <mask id="svgMask2" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+                <image width="1" height="1" href="static/foreground_2.svg" preserveAspectRatio="xMidYMid slice" />
+            </mask>
+
+            <!-- Gradient for the non-clear areas -->
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#6653df;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#3d1970;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Rectangle with the gradient applied to non-clear areas -->
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient2)" mask="url(#svgMask2)" fill-opacity="1" />
+      </svg>
+      <svg class="foreground" speed = .27 offset = 1100.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <!-- Original SVG Image (as a mask) -->
+            <mask id="svgMask3" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+                <image width="1" height="1" href="static/foreground_3.svg" preserveAspectRatio="xMidYMid slice" />
+            </mask>
+
+            <!-- Gradient for the non-clear areas -->
+            <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#3538e2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#2d1253;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Rectangle with the gradient applied to non-clear areas -->
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient3)" mask="url(#svgMask3)" fill-opacity="1" />
+      </svg>
+
+
+      
+
+	  <!-- <img src = "static/foreground_0.svg" class="foreground" speed = .04 offset = 100.0> -->
+  	<!-- <img src = "static/foreground_1.svg" class="foreground" speed = .11 offset = 200.0>
+  	<img src = "static/foreground_2.svg" class="foreground" speed = .21 offset = 600.0> 
+  	<img src = "static/foreground_3.svg" class="foreground" speed = .28 offset = 1100.0> 
+	 -->
+	<div class="color-rectangle foreground" speed = .27 offset = 2400.0></div>
+	<div class="data-rectangle foreground" speed = .27 offset = 2600.0 style="left: 15vw; "></div>
+    <p class = "data-text foreground" speed = .27 offset = 2600.0 style="left: 15vw;">53% of college students feel lonely in a world full of connections</p>
+	<div class="data-rectangle foreground" speed = .27 offset = 2800.0 style="right: 15vw; "></div>
+	<p class = "data-text foreground" speed = .27 offset = 2800.0 style="right: 15vw;">Turn your campus into a community, bringing students together in-person</p>
+	<div class="data-rectangle foreground" speed = .27 offset = 3000.0 style="left: 15vw; "></div>
+	<p class = "data-text foreground" speed = .27 offset = 3000.0 style="left: 15vw;">Stay updated on campus life; real-time parties, events, and meetups</p>
+	<div class="data-rectangle foreground" speed = .27 offset = 3200.0 style="right: 15vw; "></div>
+	<p class = "data-text foreground" speed = .27 offset = 3200.0 style="right: 15vw;">Download <B>Pique</B>, join the campus buzz, and make every interaction count</p>
 	
-	<img src = "static/pique_text.png" class="foreground" speed = -1.1>
-  	<img src = "static/foreground_0.png" class="foreground" speed = -0.9  offset = 100.0>
-  	<img src = "static/foreground_1.png" class="foreground" speed = -0.6  offset = 150.0>
-  	<img src = "static/foreground_2.png" class="foreground" speed = -0.4  offset = 150.0> 
-  	<img src = "static/foreground_3.png" class="foreground" speed = -0.25 offset = 150.0> 
+    <p class = "data-text foreground" speed = .02 offset = -300.0 style="left: 27.5vw; offset: 50% -50%;  ">why are you like this?</p>
+    <p class = "data-text foreground" speed = .02 offset = -700.0 style="left: 27.5vw; offset: -50% 50%;  ">all the cool stuff is down there</p>
+    <p class = "data-text foreground" speed = .02 offset = -1100.0 style="left: 27.5vw; offset: -50% -50%;">what are you looking for?</p>
+	<p class = "data-text foreground" speed = .02 offset = -1500.0 style="left: 27.5vw; offset: 50% -50%; ">you're clearly bored, just download the app</p>
+    <p class = "data-text foreground" speed = .02 offset = -1900.0 style="left: 27.5vw; offset: -50% 50%; ">please stop....</p>
+    <p class = "data-text foreground" speed = .02 offset = -2300.0 style="left: 27.5vw; offset: -50% -50%;">you know what, I admire the determination...</p>
+	<p class = "data-text foreground" speed = .02 offset = -2700.0 style="left: 27.5vw; offset: 50% -50%; ">there is a prize if you keep going</p>
+    <p class = "data-text foreground" speed = .02 offset = -3100.0 style="left: 27.5vw; offset: -50% 50%; ">almost there...</p>
+    <p class = "data-text foreground" speed = .02 offset = -3500.0 style="left: 27.5vw; offset: -50% 50%; ">so close...</p>
+    <p class = "data-text foreground" speed = .12 offset = -24600.0 style="left: 27.5vw; offset: -50% -50%;"><B>t(._.t)</B></p>
 	
-	<div class="color-rectangle foreground" speed = -.25 offset = 1450.0></div>
-	
-	  <script>
-		window.addEventListener('scroll', function() {
-		  const scrolled = window.scrollY;
-		  let counter = 0
-		  const parallaxSections = document.querySelectorAll('.foreground');
-		  console.log(parallaxSections.length)
-		  parallaxSections.forEach(section => {
-			const speed = section.getAttribute('speed');
-			const offset = section.getAttribute('offset');
-			let number = scrolled * speed - offset
-			section.style.top = -number + 'px';
-		  });
-		});
-	  </script>
+	<script>
+		let totalScroll = 207300 - 1600;
+        function scroll_paint(totalScroll){
+            const parallaxSections = document.querySelectorAll('.foreground');
+
+            parallaxSections.forEach(section => {
+                const speed = section.getAttribute('speed');
+                const offset = section.getAttribute('offset');
+                let translateY = -totalScroll * speed - offset
+                section.style.transform = `translateY(${-translateY}px)`;
+            });
+        }
+        window.addEventListener('wheel', function(event) {
+            event.preventDefault(); // Prevent the default scroll behavior
+
+            const delta = event.deltaY || event.detail || event.wheelDelta;
+
+            // Calculate the total scroll amount
+            totalScroll += delta;
+
+            if(totalScroll <= -13000){
+                totalScroll = -13000
+            }
+            if(totalScroll >= 207300)
+            {
+                totalScroll = 207300
+            }
+            
+            // Use totalScroll as needed (e.g., for parallax effect)
+            scroll_paint(totalScroll)
+        });
+        scroll_paint(totalScroll)
+    </script>
+
 </body>
 </html>
