@@ -29,31 +29,55 @@
 		width: 100vw;
 		position: absolute;
 		
-		transition: top 0.1s ease-out; /* Adjust the duration and timing function as needed */
+		
+        transition: transform .02s ease-in-out; /* Adjust the duration and timing function as needed */
 		
 	}
+    .foreground-data{
+        width: 100vw;
+		position: absolute;
+		
+		
+        transition: transform .02s ease-in-out;
+    }
 	.color-rectangle {
       	width: 200vw; /* Adjust width as needed */
       	height: 200vw; /* Adjust height as needed */
-    	background-color: #2d145a; /* Change color as needed */
+    	background-color: #2d1253; /* Change color as needed */
     }
-    .data-rectangle {
+    .data_rectangle_left {
+        transform: scaleY(-2);
         width: 45vw;
         height: 13vw;
         background-color: #a2a2db;
-        border-radius: 15px 50px;
-        
+        border-radius: 4vw 4vw 4vw .3vw;
+        left: 10vw;
+        transform: scaleY(-2);
     }	
-  
+    .data_rectangle_right {
+        width: 45vw;
+        height: 13vw;
+        background-color: #a2a2db;
+        border-radius: 4vw 4vw .3vw 4vw;
+        right: 10vw;
+        transform: scale(-1);
+    }	
+
     .data-text{
-        font-family: 'Courier New', Courier, monospace;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-weight: 400;
-        font-size: 2.5vw;
+        font-size: 2.4vw;
         width: 45vw;
         height: 15vw;
         flex-wrap: wrap;
-        color: #2d145a;
+        color: #02141ff2;
         text-align: center;
+    }
+    .left{
+        left:10vw;
+    }
+    .right{
+        right:10vw;
     }
   </style>
 </head>
@@ -72,8 +96,8 @@
 
             <!-- Gradient for the non-clear areas -->
             <linearGradient id="gradient0" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#8774ff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#240c46;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#83aeeb;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#08254d;stop-opacity:1" />
             </linearGradient>
         </defs>
 
@@ -90,8 +114,8 @@
 
             <!-- Gradient for the non-clear areas -->
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#805df1;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#361367;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#6b9fe7;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#07244c;stop-opacity:1" />
             </linearGradient>
         </defs>
 
@@ -108,15 +132,15 @@
 
             <!-- Gradient for the non-clear areas -->
             <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#6653df;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#3d1970;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#578ad2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#052d49;stop-opacity:1" />
             </linearGradient>
         </defs>
 
         <!-- Rectangle with the gradient applied to non-clear areas -->
         <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient2)" mask="url(#svgMask2)" fill-opacity="1" />
       </svg>
-      <svg class="foreground" speed = .27 offset = 1100.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <svg class="foreground last_foreground" speed = .27 offset = 1100.0 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 300">
         <defs>
             <!-- Original SVG Image (as a mask) -->
             <mask id="svgMask3" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
@@ -125,13 +149,18 @@
 
             <!-- Gradient for the non-clear areas -->
             <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#3538e2;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#2d1253;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#3da3e3;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#021724;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="gradient4" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#021724f2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#000f18;stop-opacity:1" />
             </linearGradient>
         </defs>
 
         <!-- Rectangle with the gradient applied to non-clear areas -->
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient3)" mask="url(#svgMask3)" fill-opacity="1" />
+        <rect x="0" y="0" width="100%" height="100" fill="url(#gradient3)" mask="url(#svgMask3)" fill-opacity="1" />
+        <rect x="0" y="98" width="100%" height="100%" fill="url(#gradient4)" />
       </svg>
 
 
@@ -142,15 +171,15 @@
   	<img src = "static/foreground_2.svg" class="foreground" speed = .21 offset = 600.0> 
   	<img src = "static/foreground_3.svg" class="foreground" speed = .28 offset = 1100.0> 
 	 -->
-	<div class="color-rectangle foreground" speed = .27 offset = 2400.0></div>
-	<div class="data-rectangle foreground" speed = .27 offset = 2600.0 style="left: 15vw; "></div>
-    <p class = "data-text foreground" speed = .27 offset = 2600.0 style="left: 15vw;">53% of college students feel lonely in a world full of connections</p>
-	<div class="data-rectangle foreground" speed = .27 offset = 2800.0 style="right: 15vw; "></div>
-	<p class = "data-text foreground" speed = .27 offset = 2800.0 style="right: 15vw;">Turn your campus into a community, bringing students together in-person</p>
-	<div class="data-rectangle foreground" speed = .27 offset = 3000.0 style="left: 15vw; "></div>
-	<p class = "data-text foreground" speed = .27 offset = 3000.0 style="left: 15vw;">Stay updated on campus life; real-time parties, events, and meetups</p>
-	<div class="data-rectangle foreground" speed = .27 offset = 3200.0 style="right: 15vw; "></div>
-	<p class = "data-text foreground" speed = .27 offset = 3200.0 style="right: 15vw;">Download <B>Pique</B>, join the campus buzz, and make every interaction count</p>
+	<!-- <div class="color-rectangle foreground" speed = .27 offset = 2050></div> -->
+	<div class="data_rectangle_left foreground-data" speed = .27 offset = 2100 ></div>
+    <p class = "data-text foreground-data left" speed = .27 offset = 2100  >53% of college students feel lonely in a world full of connections</p>
+	<div class="data_rectangle_right foreground-data" speed = .27 offset = 2300></div>
+	<p class = "data-text foreground-data right" speed = .27 offset = 2300 >Turn your campus into a community, bringing students together in-person</p>
+	<div class="data_rectangle_left foreground-data" speed = .27 offset = 2500 ></div>
+	<p class = "data-text foreground-data left" speed = .27 offset = 2500  >Stay updated on campus life; real-time parties, events, and meetups</p>
+	<div class="data_rectangle_right foreground-data" speed = .27 offset = 2700></div>
+	<p class = "data-text foreground-data right" speed = .27 offset = 2700 >Download <B>Pique</B>, join the campus buzz & make every interaction count</p>
 	
     <p class = "data-text foreground" speed = .02 offset = -300.0 style="left: 27.5vw; offset: 50% -50%;  ">why are you like this?</p>
     <p class = "data-text foreground" speed = .02 offset = -700.0 style="left: 27.5vw; offset: -50% 50%;  ">all the cool stuff is down there</p>
@@ -164,37 +193,92 @@
     <p class = "data-text foreground" speed = .12 offset = -24600.0 style="left: 27.5vw; offset: -50% -50%;"><B>t(._.t)</B></p>
 	
 	<script>
-		let totalScroll = 0;
+		let currentScroll = 0;
+        let shifter_count = 0;
         function scroll_paint(totalScroll){
+            
             const parallaxSections = document.querySelectorAll('.foreground');
 
+            const rightBubbleSections = document.querySelectorAll('.data_rectangle_right');
+            const leftBubbleSections = document.querySelectorAll('.data_rectangle_left');
+            const rightTextSections = document.querySelectorAll('.right');
+            const leftTextSections = document.querySelectorAll('.left');
+            
+            const last_foreground = document.querySelector('.last_foreground');
+            
+           
+            
+            
             parallaxSections.forEach(section => {
                 const speed = section.getAttribute('speed');
                 const offset = section.getAttribute('offset');
-                let translateY = -totalScroll * speed - offset
-                section.style.transform = `translateY(${-translateY}px)`;
+                let translateY = (-totalScroll * speed - offset ) / 10
+                section.style.transform = `translateY(${-translateY}vw)`;
             });
+
+            
+            
+            rightBubbleSections.forEach(section => {
+                const speed = section.getAttribute('speed');
+                const offset = section.getAttribute('offset');
+                let translateY = (-totalScroll * speed - offset ) / 10
+                let translateX = -Math.pow(1.30, (-translateY - 15) / 2)  
+                section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                
+            });
+            rightTextSections.forEach(section => {
+                const speed = section.getAttribute('speed');
+                const offset = section.getAttribute('offset');
+                let translateY = (-totalScroll * speed - offset ) / 10
+                let translateX = -Math.pow(1.30,(-translateY - 15) / 2)  
+                section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                
+            });
+
+            leftTextSections.forEach(section => {
+                const speed = section.getAttribute('speed');
+                const offset = section.getAttribute('offset');
+                let translateY = (-totalScroll * speed - offset ) / 10
+                let translateX = Math.pow(1.30,(-translateY - 15) / 2)
+                section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                
+            });
+            leftBubbleSections.forEach(section => {
+                const speed = section.getAttribute('speed');
+                const offset = section.getAttribute('offset');
+                let translateY = (-totalScroll * speed - offset ) / 10
+                let translateX = Math.pow(1.30,(-translateY - 15) / 2)  
+                section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                
+            });
+
+
         }
         window.addEventListener('wheel', function(event) {
+            
+            
             event.preventDefault(); // Prevent the default scroll behavior
 
             const delta = event.deltaY || event.detail || event.wheelDelta;
 
             // Calculate the total scroll amount
-            totalScroll += delta;
+            
+            currentScroll += delta * 2;
 
-            if(totalScroll <= -13000){
-                totalScroll = -13000
+            if(currentScroll <= -13000){
+                currentScroll = -13000
             }
-            if(totalScroll >= 207300)
+            if(currentScroll >= 207300)
             {
-                totalScroll = 207300
+                currentScroll = 207300
             }
             
             // Use totalScroll as needed (e.g., for parallax effect)
-            scroll_paint(totalScroll)
+            
+
+            scroll_paint(currentScroll)
+            
         });
-        scroll_paint(totalScroll)
     </script>
 
 </body>
