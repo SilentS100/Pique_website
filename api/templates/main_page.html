@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pique</title>
+  <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <style>
 	body {
 		background-color: #a2a2db;
@@ -68,16 +70,27 @@
         font-weight: 400;
         font-size: 2.4vw;
         width: 45vw;
-        height: 15vw;
+        height: 8vw;
         flex-wrap: wrap;
         color: #02141ff2;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .left{
         left:10vw;
     }
     .right{
         right:10vw;
+    }
+    .copied_out {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .copied_in {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
     }
   </style>
 </head>
@@ -153,7 +166,7 @@
                 <stop offset="100%" style="stop-color:#021724;stop-opacity:1" />
             </linearGradient>
             <linearGradient id="gradient4" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#021724f2;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#021724;stop-opacity:1" />
                 <stop offset="100%" style="stop-color:#000f18;stop-opacity:1" />
             </linearGradient>
         </defs>
@@ -179,22 +192,54 @@
 	<div class="data_rectangle_left foreground-data" speed = .27 offset = 2500 ></div>
 	<p class = "data-text foreground-data left" speed = .27 offset = 2500  >Stay updated on campus life; real-time parties, events, and meetups</p>
 	<div class="data_rectangle_right foreground-data" speed = .27 offset = 2700></div>
-	<p class = "data-text foreground-data right" speed = .27 offset = 2700 >Download <B>Pique</B>, join the campus buzz & make every interaction count</p>
+	<p class = "data-text foreground-data right" speed = .27 offset = 2700 >Download Pique, join the campus buzz & make every interaction count</p>
+	<div class="data_rectangle_left foreground-data" speed = .27 offset = 2900 onclick="copy_text()" ondrag="copy_text()"></div>
+	<p id="emailtext" class = "data-text foreground-data left" speed = .27 offset = 2900 onclick="copy_text()" ondrag="copy_text()">Feel free to reach out: <B>piquesocialapp@gmail.com</B></p>
 	
-    <p class = "data-text foreground" speed = .02 offset = -300.0 style="left: 27.5vw; offset: 50% -50%;  ">why are you like this?</p>
-    <p class = "data-text foreground" speed = .02 offset = -700.0 style="left: 27.5vw; offset: -50% 50%;  ">all the cool stuff is down there</p>
+
+    <p class = "data-text foreground" speed = .02 offset = -300.0 style="left: 27.5vw; offset: -50% -50%;  ">why are you like this?</p>
+    <p class = "data-text foreground" speed = .02 offset = -700.0 style="left: 27.5vw; offset: -50% -50%;  ">all the cool stuff is down there</p>
     <p class = "data-text foreground" speed = .02 offset = -1100.0 style="left: 27.5vw; offset: -50% -50%;">what are you looking for?</p>
-	<p class = "data-text foreground" speed = .02 offset = -1500.0 style="left: 27.5vw; offset: 50% -50%; ">you're clearly bored, just download the app</p>
-    <p class = "data-text foreground" speed = .02 offset = -1900.0 style="left: 27.5vw; offset: -50% 50%; ">please stop....</p>
-    <p class = "data-text foreground" speed = .02 offset = -2300.0 style="left: 27.5vw; offset: -50% -50%;">you know what, I admire the determination...</p>
-	<p class = "data-text foreground" speed = .02 offset = -2700.0 style="left: 27.5vw; offset: 50% -50%; ">there is a prize if you keep going</p>
-    <p class = "data-text foreground" speed = .02 offset = -3100.0 style="left: 27.5vw; offset: -50% 50%; ">almost there...</p>
-    <p class = "data-text foreground" speed = .02 offset = -3500.0 style="left: 27.5vw; offset: -50% 50%; ">so close...</p>
-    <p class = "data-text foreground" speed = .12 offset = -24600.0 style="left: 27.5vw; offset: -50% -50%;"><B>t(._.t)</B></p>
+	<p class = "data-text foreground" speed = .02 offset = -1500.0 style="left: 27.5vw; offset: -50% -50%; ">you're clearly bored, just download the app</p>
+    <p class = "data-text foreground" speed = .02 offset = -1900.0 style="left: 27.5vw; offset: -50% -50%; ">please stop....</p>
+    <p class = "data-text foreground" speed = .02 offset = -2300.0 style="left: 27.5vw; offset: -50% -50%;">okay fine, I admire the determination...</p>
+	<p class = "data-text foreground" speed = .02 offset = -2700.0 style="left: 27.5vw; offset: -50% -50%; ">there is a prize if you keep going</p>
+    <p class = "data-text foreground" speed = .02 offset = -3100.0 style="left: 27.5vw; offset: -50% -50%; ">you're almost there...</p>
+    <p class = "data-text foreground" speed = .02 offset = -3500.0 style="left: 27.5vw; offset: -50% -50%; ">a little further...</p>
+    <p class = "data-text foreground" speed = .02 offset = -3900.0 style="left: 27.5vw; offset: -50% -50%; ">its right up there...</p>
+    <p class = "data-text foreground" speed = .02 offset = -4300.0 style="left: 27.5vw; offset: -50% -50%; ">so close...</p>
+    
+    <p class = "data-text foreground" speed = .12 offset = -28500.0 style="left: 27.5vw; offset: -50% -50%;"><B>jk</B></p>
 	
 	<script>
 		let currentScroll = 0;
         let shifter_count = 0;
+        
+        function copy_text(){
+            
+            // Copy the text inside the text field
+            navigator.clipboard.writeText("piquesocialapp@gmail.com");
+            
+            var textContainer = document.getElementById("emailtext");
+            var saved = textContainer.innerText
+            // Change text to "copy!" on click
+            textContainer.innerText = "copied!";
+
+            // Add the "copied" class for fading out
+            textContainer.classList.add("copied_out");
+
+            // After 1 second, revert to the original text and remove the "copied" class
+            setTimeout(function() {
+                textContainer.innerHTML = `Feel free to reach out: ${"piquesocialapp@gmail.com".bold()}`;
+                textContainer.classList.remove("copied_out");
+                textContainer.classList.add("copied_in");
+                }, 500);
+            setTimeout(function() {
+            textContainer.classList.remove("copied_in");
+            }, 1000);
+                
+                  
+        }
         function scroll_paint(totalScroll){
             
             const parallaxSections = document.querySelectorAll('.foreground');
@@ -224,6 +269,7 @@
                 let translateY = (-totalScroll * speed - offset ) / 10
                 let translateX = -Math.pow(1.30, (-translateY - 15) / 2)  
                 section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                section.style.opacity = `${1 + (translateX / 15)}`;
                 
             });
             rightTextSections.forEach(section => {
@@ -249,11 +295,13 @@
                 let translateY = (-totalScroll * speed - offset ) / 10
                 let translateX = Math.pow(1.30,(-translateY - 15) / 2)  
                 section.style.transform = `translate(${translateX}vw, ${-translateY}vw)`;
+                section.style.opacity = `${1 - (translateX / 15)}`;
                 
             });
-
+            return 0
 
         }
+        var scrolling = false;
         window.addEventListener('wheel', function(event) {
             
             
@@ -268,17 +316,21 @@
             if(currentScroll <= -13000){
                 currentScroll = -13000
             }
-            if(currentScroll >= 207300)
+            if(currentScroll >= 238700)
             {
-                currentScroll = 207300
+                currentScroll = 238700
             }
             
             // Use totalScroll as needed (e.g., for parallax effect)
             
-
-            scroll_paint(currentScroll)
-            
+            if(!scrolling)
+            {
+                scrolling = true
+                var data = scroll_paint(currentScroll)
+                scrolling = false
+            }
         });
+        scroll_paint(0);
     </script>
 
 </body>
